@@ -20,7 +20,7 @@ XnView is a powerful, versatile and free image viewer, photo management, and
 image resizer software. XnView is one of the most stable, user-friendly, and
 comprehensive photo management tools available today, perfect for both beginners
 and professionals. All common picture and graphics formats are supported (JPEG,
-TIFF, PNG, GIF, WEBP, PSD, JPEG2000, JPEG-XL*, OpenEXR, camera RAW, HEIF, HEIC,
+TIFF, PNG, GIF, WEBP, PSD, JPEG2000, JPEG-XL, OpenEXR, camera RAW, HEIF, HEIC,
 AVIF, DICOM, PDF, DNG, CR2).
 
 ---

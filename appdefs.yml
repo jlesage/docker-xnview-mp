@@ -8,7 +8,7 @@
 #
 
 app:
-  id: 8
+  id: 4
   name: xnview-mp
   friendly_name: XnView MP
   gui_type: x11

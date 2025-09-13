@@ -8,7 +8,7 @@
 ARG DOCKER_IMAGE_VERSION=
 
 # Define software versions.
-ARG XMVIEW_MP_VERSION=1.9.2
+ARG XMVIEW_MP_VERSION=1.9.3
 
 # Define software download URLs.
 ARG XMVIEW_MP_URL=https://download.xnview.com/XnViewMP-linux-x64.tgz

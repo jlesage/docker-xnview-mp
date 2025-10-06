@@ -8,21 +8,21 @@
 ARG DOCKER_IMAGE_VERSION=
 
 # Define software versions.
-ARG XMVIEW_MP_VERSION=1.9.4
+ARG XNVIEW_MP_VERSION=1.9.4
 
 # Define software download URLs.
-ARG XMVIEW_MP_URL=https://download.xnview.com/XnViewMP-linux-x64.tgz
+ARG XNVIEW_MP_URL=https://download.xnview.com/XnViewMP-linux-x64.tgz?v=${XNVIEW_MP_VERSION}
 
 # Build XnView MP.
 FROM ubuntu:22.04 AS xnview-mp
-ARG XMVIEW_MP_URL
+ARG XNVIEW_MP_URL
 COPY src/xnview-mp /build
-RUN /build/build.sh "$XMVIEW_MP_URL"
+RUN /build/build.sh "$XNVIEW_MP_URL"
 
 # Pull base image.
 FROM jlesage/baseimage-gui:alpine-3.21-v4.9.0
 
-ARG XMVIEW_MP_VERSION
+ARG XNVIEW_MP_VERSION
 ARG DOCKER_IMAGE_VERSION
 
 # Define working directory.
@@ -43,12 +43,11 @@ RUN \
 # Add files.
 COPY rootfs/ /
 COPY --from=xnview-mp /tmp/xnview-mp-rootfs /
-#COPY --from=xnview-mp /opt/xnview-mp /opt/xnview-mp
 
 # Set internal environment variables.
 RUN \
     set-cont-env APP_NAME "XnView MP" && \
-    set-cont-env APP_VERSION "$XMVIEW_MP_VERSION" && \
+    set-cont-env APP_VERSION "$XNVIEW_MP_VERSION" && \
     set-cont-env DOCKER_IMAGE_VERSION "$DOCKER_IMAGE_VERSION" && \
     true
 

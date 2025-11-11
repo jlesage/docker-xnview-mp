@@ -40,6 +40,7 @@ apt-get install -y --no-install-recommends \
     libglib2.0-0 \
     libgstreamer1.0-0 \
     libgstreamer-plugins-base1.0-0 \
+    libheif1 \
     libpulse0 \
     libpulse-mainloop-glib0 \
     libwayland-client0 \
@@ -80,6 +81,7 @@ EXTRA_LIBS="
     /lib/x86_64-linux-gnu/libnss_dns
     /lib/x86_64-linux-gnu/libnss_files
     /lib/x86_64-linux-gnu/libnss_compat
+    /usr/lib/x86_64-linux-gnu/libheif
 "
 
 # GLX support Adds ~150MB to the image.

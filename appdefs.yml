@@ -27,6 +27,10 @@ app:
     category: "MediaApp:Photos"
   documentation:
   changelog:
+    - version: 25.11.1
+      date: 2025-11-11
+      changes:
+        - 'Updated XnView MP to version 1.9.5.'
     - version: 25.10.1
       date: 2025-10-06
       changes:

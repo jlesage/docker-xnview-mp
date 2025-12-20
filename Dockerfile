@@ -20,7 +20,7 @@ COPY src/xnview-mp /build
 RUN /build/build.sh "$XNVIEW_MP_URL"
 
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.21-v4.10.3
+FROM jlesage/baseimage-gui:alpine-3.21-v4.10.4
 
 ARG XNVIEW_MP_VERSION
 ARG DOCKER_IMAGE_VERSION

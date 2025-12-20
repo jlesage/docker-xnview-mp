@@ -548,19 +548,10 @@ server {
 	server_name xnview-mp.domain.tld;
 
 	location / {
-	        proxy_pass http://docker-xnview-mp;
+		proxy_pass http://docker-xnview-mp;
 	}
 
 	location /websockify {
-		proxy_pass http://docker-xnview-mp;
-		proxy_http_version 1.1;
-		proxy_set_header Upgrade $http_upgrade;
-		proxy_set_header Connection $connection_upgrade;
-		proxy_read_timeout 86400;
-	}
-
-	# Needed when audio support is enabled.
-	location /websockify-audio {
 		proxy_pass http://docker-xnview-mp;
 		proxy_http_version 1.1;
 		proxy_set_header Upgrade $http_upgrade;
@@ -603,16 +594,8 @@ server {
 		# Uncomment the following line if your Nginx server runs on a port that
 		# differs from the one seen by external clients.
 		#port_in_redirect off;
-		location /xnview-mp/websockify {
-			proxy_pass http://docker-xnview-mp/websockify;
-			proxy_http_version 1.1;
-			proxy_set_header Upgrade $http_upgrade;
-			proxy_set_header Connection $connection_upgrade;
-			proxy_read_timeout 86400;
-		}
-		# Needed when audio support is enabled.
-		location /xnview-mp/websockify-audio {
-			proxy_pass http://docker-xnview-mp/websockify-audio;
+		location ~ ^/xnview-mp/(websockify(-.*)?) {
+                        proxy_pass http://docker-xnview-mp/$1;
 			proxy_http_version 1.1;
 			proxy_set_header Upgrade $http_upgrade;
 			proxy_set_header Connection $connection_upgrade;

@@ -1,5 +1,4 @@
 #!/bin/sh
-export HOME=/config
 export QT_XCB_GL_INTEGRATION=none
 
 exec /opt/xnview-mp/xnview.sh

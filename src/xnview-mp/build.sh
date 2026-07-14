@@ -58,6 +58,7 @@ apt-get install -y --no-install-recommends \
     libxcb-xinerama0 \
     libxkbcommon0 \
     libxkbcommon-x11-0 \
+    libqt5websockets5 \
 
 # Generate locale.
 locale-gen en_US.UTF-8
@@ -71,6 +72,13 @@ curl -# -L -f ${XNVIEW_MP_URL} | tar xz --strip 1 -C "$XNVIEW_MP_INSTALL_DIR"
 rm -r \
     "$XNVIEW_MP_INSTALL_DIR"/lib/wayland* \
     "$XNVIEW_MP_INSTALL_DIR"/lib/platformthemes/libqgtk3.so \
+    "$XNVIEW_MP_INSTALL_DIR"/qml/Qt/labs/animation \
+    "$XNVIEW_MP_INSTALL_DIR"/qml/QtLocation/libdeclarative_locationplugin.so \
+    "$XNVIEW_MP_INSTALL_DIR"/qml/QtPositioning/libpositioningquickplugin.so \
+    "$XNVIEW_MP_INSTALL_DIR"/qml/QtQuick/Controls/Basic \
+    "$XNVIEW_MP_INSTALL_DIR"/qml/QtQuick/Controls/Fusion \
+    "$XNVIEW_MP_INSTALL_DIR"/qml/QtQuick/Controls/libqtquickcontrols2plugin.so \
+    "$XNVIEW_MP_INSTALL_DIR"/qml/QtQuick/Templates \
 
 ln -s libOpenEXR.so "$XNVIEW_MP_INSTALL_DIR"/Plugins/libOpenEXR-3_2.so.29
 ln -s libOpenEXRCore-3_2.so "$XNVIEW_MP_INSTALL_DIR"/Plugins/libOpenEXRCore-3_2.so.29

@@ -157,20 +157,25 @@ for BIN in $BINARIES; do
 done
 
 log "Patching ELF of libraries..."
+find "$XNVIEW_MP_INSTALL_DIR"/lib -maxdepth 1 -type f -name "lib*" | xargs file | grep "LSB shared object" | cut -d : -f 1 | while read FILE
+do
+    echo "  -> Setting rpath of $FILE..."
+    patchelf --set-rpath '$ORIGIN:$ORIGIN/../Plugins' "$FILE"
+done
 find "$XNVIEW_MP_INSTALL_DIR"/Plugins -type f | xargs file | grep "LSB shared object" | cut -d : -f 1 | while read FILE
 do
     echo "  -> Setting rpath of $FILE..."
-    patchelf --set-rpath '$ORIGIN;$ORIGIN/../lib' "$FILE"
+    patchelf --set-rpath '$ORIGIN:$ORIGIN/../lib' "$FILE"
 done
 find "$XNVIEW_MP_INSTALL_DIR"/lib/*/ -type f | xargs file | grep "LSB shared object" | cut -d : -f 1 | while read FILE
 do
     echo "  -> Setting rpath of $FILE..."
-    patchelf --set-rpath '$ORIGIN/../../lib' "$FILE"
+    patchelf --set-rpath '$ORIGIN/../../lib:$ORIGIN/../../Plugins' "$FILE"
 done
 find "$XNVIEW_MP_INSTALL_DIR"/qml/*/ -type f | xargs file | grep "LSB shared object" | cut -d : -f 1 | while read FILE
 do
     echo "  -> Setting rpath of $FILE..."
-    patchelf --set-rpath '$ORIGIN/../../lib' "$FILE"
+    patchelf --set-rpath '$ORIGIN/../../lib:$ORIGIN/../../Plugins' "$FILE"
 done
 
 log "Creating rootfs..."

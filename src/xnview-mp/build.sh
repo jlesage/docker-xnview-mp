@@ -49,6 +49,7 @@ apt-get install -y --no-install-recommends \
     libx11-6 \
     libx11-xcb1 \
     libxcb1 \
+    libxcb-cursor0 \
     libxcb-icccm4 \
     libxcb-image0 \
     libxcb-shape0 \
